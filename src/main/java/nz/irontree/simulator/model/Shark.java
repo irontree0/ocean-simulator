@@ -8,7 +8,7 @@ public class Shark {
 
     private int health = 100;
     private int energy = 100;
-    private final int coeffTeeth = 2;
+    private final int COEFF_TEETH = 2;
 
     public void setEnergy(int energy) {
         this.energy = energy;
@@ -26,7 +26,7 @@ public class Shark {
         this.health = health;
     }
 
-    public int getCoeffTeeth() {
-        return coeffTeeth;
+    public int getCOEFF_TEETH() {
+        return COEFF_TEETH;
     }
 }

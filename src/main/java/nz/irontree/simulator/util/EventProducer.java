@@ -38,7 +38,7 @@ public class EventProducer {
                 findBoat(shark);
             } else if (eventNumber >= 90 && eventNumber < 95) {
                 orcaAttack(shark);
-            } else if (eventNumber >= 95 && eventNumber <= 100) {
+            } else if (eventNumber >= 95 && eventNumber < 100) {
                 washedAshore(shark);
             }
         }
@@ -66,7 +66,7 @@ public class EventProducer {
         energy = Math.max(energy - 3, 0);
         shark.setEnergy(energy);
         int health = shark.getHealth();
-        health = Math.min(health + (shark.getCoeffTeeth() * 4), 100);
+        health = Math.min(health + (shark.getCOEFF_TEETH() * 4), 100);
         shark.setHealth(health);
         checkEnergy(shark);
         System.out.printf("The Shark has eaten a ray! -3 from Energy. Current Energy: %s. " +
@@ -78,7 +78,7 @@ public class EventProducer {
         energy = Math.max(energy - 4, 0);
         shark.setEnergy(energy);
         int health = shark.getHealth();
-        health = Math.min(health + (shark.getCoeffTeeth() * 4), 100);
+        health = Math.min(health + (shark.getCOEFF_TEETH() * 4), 100);
         shark.setHealth(health);
         checkEnergy(shark);
         System.out.printf("The Shark has eaten a squid! -4 from Energy. Current Energy: %s. " +
@@ -95,7 +95,7 @@ public class EventProducer {
 
     private void eatSeaweed(Shark shark) {
         int health = shark.getHealth();
-        health = Math.min(health + (shark.getCoeffTeeth() * 2), 100);
+        health = Math.min(health + (shark.getCOEFF_TEETH() * 2), 100);
         shark.setHealth(health);
         checkEnergy(shark);
         System.out.println("The Shark has eaten seaweed! Current Health: " + shark.getHealth());
@@ -114,7 +114,7 @@ public class EventProducer {
         energy = Math.max(energy - 10, 0);
         shark.setEnergy(energy);
         int health = shark.getHealth();
-        health = Math.min(health + (shark.getCoeffTeeth() * 5), 100);
+        health = Math.min(health + (shark.getCOEFF_TEETH() * 5), 100);
         shark.setHealth(health);
         checkEnergy(shark);
         System.out.printf("The Shark has found a fishers' boat full of fish! It was hard, but what a luck! " +
@@ -142,9 +142,7 @@ public class EventProducer {
     }
 
     private boolean checkHealth(Shark shark) {
-        if (shark.getHealth() <= 0 ) {
-            return false;
-        } else return true;
+        return shark.getHealth() > 0;
     }
 
     private void checkEnergy(Shark shark) {
